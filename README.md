@@ -57,9 +57,6 @@ pip install -r requirements.txt
 python train_model.py
 ```
 
-## 🤝 Contact & Contributions
-Feel free to contribute by submitting pull requests or raising issues!
 
-👩‍💻 **Author**: [Your Name]  
-📧 **Contact**: [Your Email]  
-🔗 **GitHub**: [Your Repository Link]
+
+
