@@ -1,67 +1,81 @@
 # Salary Prediction Model
 
-## 📌 Project Overview
-This project aims to develop a machine learning model that predicts salary ranges based on various job-related factors. The model leverages different machine learning techniques, including feature engineering, class balancing (SMOTE), and hyperparameter tuning to optimize performance.
+## Project Overview
+This project focuses on predicting salary ranges based on various job-related features using machine learning models. The dataset includes factors such as years of experience, seniority level, company size, and AI usage, among others. The goal is to develop an optimized classification model that accurately predicts salary brackets.
 
-## 📂 Dataset
-The dataset contains approximately **3000 rows** with the following key features:
-- `years_of_xp`: Total years of experience
-- `years_of_xp_germany`: Experience in Germany
-- `vacation_days`: Number of vacation days
-- `company_size`: Size of the company
-- `seniority`: Job seniority level
-- `ai_use`: Whether AI is used in the role
-- `year`: Year of the salary record
-- `position`: Job position (One-Hot Encoded)
-- `city`: Location of the job (One-Hot Encoded)
-- `salary_euros`: Actual salary (used to derive salary range)
+## Dataset
+- **Number of rows:** ~3,000
+- **Features:**
+  - Years of experience
+  - Seniority level
+  - Company size
+  - AI usage
+  - Job position
+  - City
+  - Salary in euros (target variable categorized into salary ranges)
 
-## 🔍 Preprocessing and Feature Engineering
-1. **Encoding Categorical Variables**
-   - `seniority` and `company_size` were mapped to ordinal values.
-   - `position` and `city` were one-hot encoded.
-   - `ai_use` was converted to binary (1 for Yes, 0 for No).
-2. **Salary Range Encoding**
-   - Salaries were binned into **discrete categories** for classification.
-3. **Feature Scaling**
-   - Standardization was applied using `StandardScaler`.
-4. **Handling Imbalance with SMOTE**
-   - SMOTE was applied to increase the sample size of underrepresented salary classes to improve model performance.
+## Data Preprocessing
+1. **Encoding:**
+   - Ordinal encoding for `Seniority` and `Company Size`.
+   - One-hot encoding for `Position` and `City`.
+   - Binary encoding for `AI Usage`.
+2. **Salary Range Encoding:**
+   - The salary was binned into discrete ranges for classification.
+3. **Feature Scaling:**
+   - StandardScaler was used to normalize features.
+4. **Handling Imbalanced Data:**
+   - Applied **SMOTE** (Synthetic Minority Over-sampling Technique) to increase the representation of underrepresented salary categories.
 
-## 🏆 Models Implemented
-The following models were trained and evaluated:
+## Model Selection & Hyperparameter Tuning
+### Models Tested:
 - **Random Forest**
-- **Support Vector Machine (SVM)**
 - **XGBoost**
 - **LightGBM**
+- **Support Vector Classifier (SVC)**
 
-## ⚙️ Hyperparameter Tuning
-GridSearchCV was used to optimize key parameters such as:
-- `n_estimators`, `max_depth`, `min_samples_split`, `min_samples_leaf` for Random Forest
-- `learning_rate`, `num_leaves`, `max_depth` for XGBoost & LightGBM
-- `C`, `kernel` for SVM
+### Hyperparameter Tuning:
+- Used **GridSearchCV** with **5-fold Cross-Validation**.
+- Tuned parameters such as `n_estimators`, `max_depth`, `min_samples_split`, `learning_rate`, etc.
+- Adjusted `class_weight='balanced'` for handling imbalance in classification.
 
-## 📊 Model Evaluation
-The models were evaluated using:
-- **Accuracy**: Overall correctness of predictions
-- **Log-loss**: Measures confidence of predictions
-- **Precision, Recall, F1-score**: To balance false positives & false negatives
-- **Confusion Matrix**: Visualizing classification performance
+## Performance Evaluation
+### Metrics Used:
+- **Accuracy**
+- **Log-Loss**
+- **Confusion Matrix**
+- **Precision, Recall, F1-score**
 
-### 🔹 Best Model Selection
-After comparing **train & test accuracy, log-loss, and classification reports**, the best model was selected based on:
-- **Balanced accuracy across salary classes**
-- **Generalization to unseen data (avoiding overfitting)**
-- **Higher F1-score and recall for underrepresented salary classes**
+### Best Performing Model:
+- **Random Forest**
+  - Train Accuracy: **0.5520**
+  - Test Accuracy: **0.4965**
+  - Train Log-loss: **1.1204**
+  - Test Log-loss: **1.1528**
 
-## 🚀 Future Improvements
-- **Feature Engineering**: Explore additional features such as industry, remote work status, or education level.
-- **Ensemble Learning**: Combine multiple models to improve robustness.
-- **Data Augmentation**: Enhance the dataset with more salary samples.
+## Key Insights & Improvements
+- The model suffered from **overfitting**, as training accuracy was much higher than test accuracy.
+- Increasing the dataset size or using better feature engineering could help improve generalization.
+- Additional techniques such as **Ensembling** or **Stacking** may enhance performance.
+- Further hyperparameter tuning could optimize the final results.
 
-## 💡 Key Takeaways
-1. **SMOTE helped balance the dataset but required fine-tuning to prevent over-sampling.**
-2. **Hyperparameter tuning improved model performance, but overfitting remained a challenge.**
-3. **Log-loss proved useful in evaluating confidence in classification predictions.**
-4. **Choosing the best model required considering both accuracy and class-specific metrics.**
+## How to Run the Project
+### Requirements:
+- Python 3.x
+- Libraries: `pandas`, `numpy`, `sklearn`, `xgboost`, `lightgbm`, `imblearn`
+
+### Steps:
+1. Clone the repository.
+2. Install dependencies: `pip install -r requirements.txt`.
+3. Run the Jupyter Notebook or script: `python salary_prediction.py`.
+4. Review model performance outputs.
+
+## Future Work
+- Fine-tuning hyperparameters further.
+- Implementing deep learning approaches (e.g., Neural Networks).
+- Adding new features for better salary range estimation.
+
+---
+📌 **Author:** [Your Name]  
+📌 **Date:** March 2025  
+📌 **Contact:** [Your Email]
 
