@@ -36,8 +36,8 @@ The dataset contains the following key features:
 - 🎯 **Precision, Recall, F1-score**: Helps assess model strengths and weaknesses per salary class.
 
 ## 🏆 Key Results
-- Best performing model: **[🏅 Insert best model name]** with **[📈 Insert Accuracy %]**.
-- Accuracy improved by **[🚀 X%]** after feature engineering and SMOTE.
+- Best performing model: **[🏅 Random Forest]** with **[📈 55%]**.
+- Accuracy improved by **[🚀 14%]** after feature engineering and SMOTE.
 - Model struggles with **salary class 2**, requiring further balancing strategies.
 
 ## 🚀 Improvements & Next Steps
