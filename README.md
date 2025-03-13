@@ -1,5 +1,3 @@
-# salary_ml_project
-
 # Salary Prediction Model
 
 ## 📌 Project Overview
